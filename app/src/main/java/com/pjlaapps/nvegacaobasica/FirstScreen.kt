@@ -15,9 +15,7 @@ import androidx.compose.ui.Modifier
 fun FirstScreen(
     onNextPage: () -> Unit
 ){
-    Scaffold(
-        modifier = Modifier.fillMaxSize()
-    ) {
+    Scaffold {
         Box(
             modifier = Modifier.fillMaxSize().padding(it),
             contentAlignment = Alignment.Center

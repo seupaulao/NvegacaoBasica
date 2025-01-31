@@ -5,14 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
@@ -41,9 +38,10 @@ fun MainScreen() {
 
 @Composable
 fun HomeScreen(navController: NavController) {
-    Column {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text("Home Screen")
-
         Button(onClick = { navController.navigate("details") }) {
             Text("Go to Details")
         }
@@ -51,9 +49,10 @@ fun HomeScreen(navController: NavController) {
 }
 @Composable
 fun DetailsScreen(navController: NavController) {
-    Column {
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
         Text("Details Screen")
-
         Button(onClick = { navController.popBackStack() }) {
             Text("Voltar a tela anterior")
         }
@@ -75,10 +74,9 @@ fun Navigation() {
             )
         }
         composable<Routes.SECOND_SCREEN> {
-            FirstScreen (
+            SecondScreen (
                 onNextPage = {
                     navController.popBackStack()
-                   // navController.navigate(Routes.FIRST_SCREEN)
                 }
             )
         }
@@ -87,15 +85,15 @@ fun Navigation() {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun basicoPreview() {
     NvegacaoBasicaTheme {
         MainScreen()
     }
 }
 
-//@Preview(showBackground = true)
+@Preview(showBackground = true)
 @Composable
-fun GreetingPreview2() {
+fun basicoArquivosSeparadosPreview() {
     NvegacaoBasicaTheme {
         Navigation()
     }
